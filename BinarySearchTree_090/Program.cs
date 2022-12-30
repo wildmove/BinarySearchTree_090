@@ -99,6 +99,20 @@ namespace BinarySearchTree_090
                 preOrder(ptr.rightchild);
             }
         }
+        public void postOrder(Node ptr) // perform the post order traversal of the tree
+        {
+            if (ROOT == null)
+            {
+                Console.WriteLine("Tree is empty");
+                return;
+            }
+            if (ptr != null)
+            {
+                postOrder(ptr.leftchild);
+                postOrder(ptr.rightchild);
+                Console.Write(ptr.info + " ");
+            }
+        }
     }
 
     internal class Program
