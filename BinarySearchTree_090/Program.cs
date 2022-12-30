@@ -85,6 +85,20 @@ namespace BinarySearchTree_090
                 Console.Write(ptr.info);
             }
         }
+        public void preOrder(Node ptr)
+        {
+            if (ROOT == null)
+            {
+                Console.WriteLine("Tree is empty");
+                return;
+            }
+            if (ptr != null)
+            {
+                Console.Write(ptr.info + " ");
+                preOrder(ptr.leftchild);
+                preOrder(ptr.rightchild);
+            }
+        }
     }
 
     internal class Program
