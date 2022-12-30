@@ -35,7 +35,7 @@ namespace BinarySearchTree_090
         public void insert(string element) //Insert a node in the binary tree
         {
             Node tmp, parent = null, currentNode = null;
-            Search(element, ref parent, ref currentNode);
+            search(element, ref parent, ref currentNode);
             if (currentNode != null)
             {
                 Console.WriteLine("Duplicate words not allowed");
@@ -113,12 +113,53 @@ namespace BinarySearchTree_090
                 Console.Write(ptr.info + " ");
             }
         }
-    }
-
-    internal class Program
-    {
         static void Main(string[] args)
         {
+            BinaryTree x = new BinaryTree();
+            while (true)
+            {
+                Console.WriteLine("\nMenu");
+                Console.WriteLine("1. Implement insert operation");
+                Console.WriteLine("2. Perform inOrder traversal");
+                Console.WriteLine("3. Perform preOrder traversal");
+                Console.WriteLine("4. Perform postOrder traversal");
+                Console.WriteLine("5. Exit");
+                Console.WriteLine("Enter your choice (1-5)");
+                char ch = Convert.ToChar(Console.ReadLine());
+                Console.WriteLine();
+                switch (ch)
+                {
+                    case '1':
+                        {
+                            Console.Write("Enter a word: ");
+                            String word = Console.ReadLine();
+                            x.insert(word);
+                        }
+                        break;
+                    case '2':
+                        {
+                            x.inOrder(x.ROOT);
+                        }
+                        break;
+                    case '3':
+                        {
+                            x.preOrder(x.ROOT);
+                        }
+                        break;
+                    case '4':
+                        {
+                            x.postOrder(x.ROOT);
+                        }
+                        break;
+                    case '5':
+                        return;
+                    default:
+                        {
+                            Console.WriteLine("Invalid option");
+                            break;
+                        }
+                }
+            }
         }
     }
 }
