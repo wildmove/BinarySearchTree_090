@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BinarySearchTree_090
 {
@@ -55,6 +56,20 @@ namespace BinarySearchTree_090
                 {
                     parent.rightchild = tmp;
                 }
+            }
+        }
+        public void search(string element, ref Node parent, ref Node currentNode)
+        {
+            //This function seaarches the currentNode of the specified node as well as the current Node of its parent
+            currentNode = ROOT;
+            parent = null;
+            while ((currentNode != null) && (currentNode.info != element))
+            {
+                parent = currentNode;
+                if (string.Compare(element, parent.info) < 0)
+                    currentNode = currentNode.leftchild;
+                else 
+                    currentNode= currentNode.rightchild;
             }
         }
 
